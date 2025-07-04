@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinta Kita Dalam Slide 🥰</title>
+  <link rel="icon" href="favicon.ico">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe4e1, #bde0fe, #fef6e4);
+      color: #333;
+      overflow-x: hidden;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 20px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    nav h1 {
+      font-size: 20px;
+      color: #ff69b4;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    nav h1 span {
+      animation: emoji-bounce 1s infinite alternate;
+    }
+    .nav-icons {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    @keyframes emoji-bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+    .intro {
+      width: 100%;
+      height: 100vh;
+      background: #fff0f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 30px;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+    .intro.fade-out { opacity: 0; pointer-events: none; }
+    .intro h2 { font-size: 24px; color: #444; margin-bottom: 15px; }
+    .intro p { font-size: 16px; color: #666; margin-bottom: 20px; }
+    .start-btn {
+      background-color: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .slider-container {
+      position: relative;
+      width: 95%;
+      max-width: 700px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .slider-container.show { display: block; opacity: 1; }
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      object-fit: cover;
+    }
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      font-size: 18px;
+      padding: 8px 15px;
+      cursor: pointer;
+      z-index: 2;
+      border-radius: 10px;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+    #countdown {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #6b4c9a;
+      background: #fff;
+      padding: 10px 15px;
+      display: none;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    #countdown.show { display: inline-block; opacity: 1; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #1f66ff;
+    }
+    @media (max-width: 600px) {
+      nav h1 { font-size: 18px; }
+      .nav-icons { font-size: 12px; }
+      .intro h2 { font-size: 20px; }
+      .intro p { font-size: 14px; }
+      .start-btn { font-size: 14px; }
+      .btn { font-size: 16px; }
+      #countdown { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Cinta Kita Dalam Slide <span>😍</span></h1>
+    <div class="nav-icons">🏠 Beranda &nbsp; 📸 Galeri &nbsp; 📅 Anniversary</div>
+  </nav>
+
+  <div class="intro" id="intro">
+    <h2>Selamat datang di kisah cinta kita</h2>
+    <p>Ini bukan sekadar website, tapi cerita tentang kita ❤️</p>
+    <button class="start-btn" onclick="startStory()">Mulai Cerita</button>
+  </div>
+
+  <div class="slider-container" id="sliderContainer">
+    <button class="btn prev">⬅️</button>
+    <div class="slider-track" id="slider">
+      <!-- Gambar Slide -->
+      <img src="foto1.jpg" class="slide">
+      <img src="foto2.jpg" class="slide">
+      <img src="foto3.jpg" class="slide">
+      <img src="foto4.jpg" class="slide">
+      <img src="foto5.jpg" class="slide">
+      <img src="foto6.jpg" class="slide">
+      <img src="foto7.jpg" class="slide">
+      <img src="foto8.jpg" class="slide">
+      <img src="foto9.jpg" class="slide">
+      <img src="foto10.jpg" class="slide">
+      <img src="foto11.jpg" class="slide">
+      <img src="foto12.jpg" class="slide">
+      <img src="foto13.jpg" class="slide">
+      <img src="foto14.jpg" class="slide">
+      <img src="foto15.jpg" class="slide">
+      <img src="foto16.jpg" class="slide">
+      <img src="foto17.jpg" class="slide">
+      <img src="foto18.jpg" class="slide">
+      <img src="foto19.jpg" class="slide">
+      <img src="foto20.jpg" class="slide">
+      <img src="foto21.jpg" class="slide">
+      <img src="foto22.jpg" class="slide">
+      <img src="foto23.jpg" class="slide">
+      <img src="foto24.jpg" class="slide">
+      <img src="foto25.jpg" class="slide">
+      <img src="foto26.jpg" class="slide">
+      <img src="foto27.jpg" class="slide">
+      <img src="foto28.jpg" class="slide">
+      <img src="foto29.jpg" class="slide">
+      <img src="foto30.jpg" class="slide">
+      <img src="foto31.jpg" class="slide">
+      <img src="foto32.jpg" class="slide">
+      <img src="foto33.jpg" class="slide">
+      <img src="foto34.jpg" class="slide">
+      <img src="foto35.jpg" class="slide">
+      <img src="foto36.jpg" class="slide">
+      <img src="foto37.jpg" class="slide">
+      <img src="foto38.jpg" class="slide">
+      <img src="foto39.jpg" class="slide">
+      <img src="foto40.jpg" class="slide">
+      <img src="foto41.jpg" class="slide">
+      <img src="foto42.jpg" class="slide">
+      <img src="foto43.jpg" class="slide">
+      <img src="foto44.jpg" class="slide">
+      <img src="foto45.jpg" class="slide">
+    </div>
+    <button class="btn next">➡️</button>
+  </div>
+
+  <div style="text-align:center; margin-top:30px;">
+    <div id="countdown"></div>
+  </div>
+
+  <audio id="bg-music" loop>
+    <source src="musik.mp3" type="audio/mp3">
+  </audio>
+
+  <footer>
+    Website romantis ini dibuat khusus oleh Tegar untuk Elfa 💖
+  </footer>
+
+  <script>
+    const slider = document.getElementById("slider");
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
+
+    function updateSlide() {
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.querySelector(".next").addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      updateSlide();
+    });
+
+    document.querySelector(".prev").addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      updateSlide();
+    });
+
+    function startAutoSlide() {
+      setInterval(() => {
+        index = (index + 1) % slides.length;
+        updateSlide();
+      }, 4000);
+    }
+
+    const anniversaryDate = new Date("2025-08-20T00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = anniversaryDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = `Menuju Anniversary ke-1: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+    }, 1000);
+
+    function startStory() {
+      const intro = document.getElementById("intro");
+      const sliderContainer = document.getElementById("sliderContainer");
+      const countdown = document.getElementById("countdown");
+
+      intro.classList.add("fade-out");
+      setTimeout(() => {
+        intro.style.display = "none";
+        sliderContainer.classList.add("show");
+        countdown.classList.add("show");
+        document.getElementById("bg-music").play();
+        startAutoSlide();
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
